@@ -2,20 +2,28 @@ language: java
 
 install:
     - mvn clean install -DskipTests
-#    - (cd SAO-Integration/IntegrationLayerServices/ && mvn clean install)
 
-jenkins:
-#  stash:
-#    allowEmpty: true
-#    includes: 'foo'
-#    name: 'artifacts'
-#  pipeline_jenkinsfile: aurea-central-jervis/pipelines/SaaSMultiPlatformUnstable
-  collect:
-    artifacts: './target/*.jar'
-    #also add SAO-Integration/IntegrationLayerServices/target
+branches:
+  only:
+    - master
+    - release
+    - qa
+    - develop
+    - /^feature\/.*$/
+    - /^release\/.*$/
 
 services:
-  CustomerCare:
+  hello-world:
     docker_image:
+     dockerfile: Dockerfile
      path: .
      name: registry2.swarm.devfactory.com/optiva/sao/test-image
+
+jenkins:
+  platform: docker
+  sudo: sudo
+  stash:
+    allowEmpty: true
+    name: 'artifacts'
+  pipeline_jenkinsfile: aurea-central-jervis/pipelines/SaaS
+    artifacts: ./target/*.jar
