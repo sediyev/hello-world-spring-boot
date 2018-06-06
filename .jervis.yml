@@ -15,9 +15,9 @@ branches:
 services:
   hello-world:
     docker_image:
-     dockerfile: Dockerfile
-     path: .
-     name: registry2.swarm.devfactory.com/optiva/sao/test-image
+      dockerfile: Dockerfile
+      path: .
+      name: registry2.swarm.devfactory.com/optiva/sao/test-image
 
 jenkins:
   platform: docker
@@ -26,4 +26,4 @@ jenkins:
     allowEmpty: true
     name: 'artifacts'
   pipeline_jenkinsfile: aurea-central-jervis/pipelines/SaaS
-    artifacts: ./target/*.jar
+    artifacts: './target/*.jar'
