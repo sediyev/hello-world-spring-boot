@@ -26,4 +26,4 @@ jenkins:
     allowEmpty: true
     name: 'artifacts'
   pipeline_jenkinsfile: aurea-central-jervis/pipelines/SaaS
-    artifacts: './target/*.jar'
+    artifacts: ./target/*.jar
