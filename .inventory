@@ -1,0 +1,12 @@
+all:
+  vars:
+    company: "optiva"
+    team: "product"
+    product: "sao"
+    project: "sao"
+    maintainer:
+      skype: byjg.com
+
+docker-host:
+  children:
+    dl6.aureacentral.com
