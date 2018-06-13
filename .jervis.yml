@@ -12,22 +12,23 @@ branches:
     - /^feature\/.*$/
     - /^release\/.*$/
 
+jenkins:
+#  platform: docker
+#  sudo: sudo
+  stash:
+    allowEmpty: true
+    name: 'artifacts'
+  pipeline_jenkinsfile: aurea-central-jervis/pipelines/SaaSMultiPlatform
+  collect:
+    artifacts: 'target/*.jar'
+
 services:
-  sao-test-image:
+  saotest:
     docker_image:
       dockerfile: Dockerfile
       path: .
       name: registry2.swarm.devfactory.com/optiva/sao/test-image
 
-jenkins:
-  platform: docker
-  sudo: sudo
-  stash:
-    allowEmpty: true
-    name: 'artifacts'
-  pipeline_jenkinsfile: aurea-central-jervis/pipelines/SaaS
-  collect:
-    artifacts: ./target/*.jar
 
 notifications:
   email:
