@@ -28,3 +28,10 @@ jenkins:
   pipeline_jenkinsfile: aurea-central-jervis/pipelines/SaaS
   collect:
     artifacts: ./target/*.jar
+
+notifications:
+  email:
+    recipients:
+      - to: emin.sadiyev@optiva.com
+        on_success: always
+        on_failure: always
