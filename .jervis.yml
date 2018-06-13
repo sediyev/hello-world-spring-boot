@@ -13,7 +13,7 @@ branches:
     - /^release\/.*$/
 
 services:
-  hello-world:
+  sao-test-image:
     docker_image:
       dockerfile: Dockerfile
       path: .
